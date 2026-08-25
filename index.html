@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Para mi Pipin 🤎</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#09070d;color:#fff;font-family:Arial,sans-serif;overflow-x:hidden}
+.gate{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at 50% 35%,#49243b,#09070d 58%);transition:.7s}
+.gate.hide{opacity:0;pointer-events:none}.box{width:min(650px,94vw);padding:42px 25px;text-align:center;border:1px solid #ffffff20;border-radius:32px;background:#17101dcc;backdrop-filter:blur(18px);box-shadow:0 25px 90px #0008}
+.kitty{font-size:64px;animation:bob 2s infinite}@keyframes bob{50%{transform:translateY(-9px)}}
+.badge{display:inline-block;margin:10px;padding:8px 13px;border-radius:30px;background:#ff6fae18;color:#ff9ac7;font-size:12px;font-weight:bold;letter-spacing:2px}
+h1,h2{font-family:Georgia,serif}h1{font-size:clamp(38px,8vw,78px);line-height:.95;margin:15px 0}
+.question{font-family:Georgia,serif;font-size:clamp(20px,4vw,29px);line-height:1.35}.small{color:#a99aa5}
+.buttons{height:95px;position:relative;display:flex;justify-content:center;align-items:center;gap:15px}
+button{border:0;border-radius:999px;padding:15px 24px;font-weight:bold;font-size:15px;cursor:pointer}
+.yes{background:linear-gradient(135deg,#ffc1dc,#ff6fae);color:#190b12;box-shadow:0 10px 35px #ff6fae55}.no{background:#ffffff0d;color:#ddd;border:1px solid #ffffff20;position:relative}
+#no{transition:left .18s,top .18s,transform .18s}
+section{min-height:100vh;padding:90px 7vw;display:grid;place-items:center}.wrap{max-width:1050px;width:100%;text-align:center}
+h2{font-size:clamp(40px,7vw,78px);margin:0 0 18px}.muted{color:#c7b7c2;max-width:720px;margin:auto;font-size:18px;line-height:1.6}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}.card{padding:28px;border-radius:25px;background:#ffffff08;border:1px solid #ffffff13;transition:.35s;text-align:left}.card:hover{transform:translateY(-8px) rotate(-1deg);border-color:#ff6fae55}.card b{font-size:20px}.card p{color:#c7b7c2;line-height:1.6}
+.love{background:radial-gradient(circle,#ff6fae14,transparent 45%)}.letter{max-width:780px;margin:35px auto;padding:32px;text-align:left;border:1px solid #ffffff15;border-radius:28px;background:#ffffff06;color:#eadde5;line-height:1.8}.pink{color:#ff9ac7}
+.spring{margin:35px auto;padding:35px;border-radius:30px;background:#ff6fae0c;border:1px solid #ff6fae33}.million{font-family:Georgia,serif;color:#ff6fae;font-size:clamp(48px,10vw,100px);font-weight:bold}.spring h3{font:clamp(25px,5vw,48px) Georgia;margin:8px}.spring p{color:#c7b7c2}
+.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}.cat{padding:16px;border-radius:26px;background:#ffffff06;border:1px solid #ffffff12}.cat svg{width:100%;display:block}.cat span{display:block;color:#eadde5;padding:10px}
+.music{position:fixed;right:18px;bottom:18px;z-index:20;background:#17101df2;color:#fff;border:1px solid #ffffff20}.player{position:fixed;right:18px;bottom:72px;z-index:19;width:min(360px,calc(100vw - 36px));padding:18px;border-radius:22px;background:#17101df5;border:1px solid #ffffff18;display:none}.player.show{display:block}.player audio{width:100%}.player small{color:#c7b7c2}
+.heart{position:fixed;bottom:-30px;z-index:10;pointer-events:none;animation:up 5s linear forwards}@keyframes up{to{transform:translateY(-110vh) rotate(20deg);opacity:0}}
+@media(max-width:800px){.cards,.cats{grid-template-columns:1fr 1fr}}@media(max-width:520px){.cards,.cats{grid-template-columns:1fr}.box{padding:34px 18px}}
+
+.digital-section{background:radial-gradient(circle at 50% 40%,rgba(255,111,174,.12),transparent 45%),#0b080e}
+.digital-stage{position:relative;max-width:900px;height:560px;margin:40px auto 0;border:1px solid rgba(255,255,255,.12);border-radius:35px;overflow:hidden;background:linear-gradient(180deg,#1b1220,#0d0a10);box-shadow:0 30px 90px rgba(0,0,0,.35)}
+.digital-stage:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 28%,rgba(255,174,205,.12),transparent 25%),radial-gradient(circle at 20% 80%,rgba(145,115,255,.08),transparent 30%)}
+.digital-status{position:absolute;top:24px;left:50%;transform:translateX(-50%);z-index:5;padding:10px 18px;border-radius:999px;background:rgba(12,8,15,.7);border:1px solid rgba(255,255,255,.1);color:#f3dce8;white-space:nowrap}
+.twin{position:absolute;left:25%;bottom:90px;width:190px;height:340px;transition:.6s;filter:drop-shadow(0 25px 30px rgba(0,0,0,.4))}
+.face{position:absolute;left:35px;top:82px;width:120px;height:135px;border-radius:48% 48% 45% 45%;background:linear-gradient(145deg,#e7b08f,#bd785e);z-index:3}
+.hair{position:absolute;left:36px;top:58px;width:120px;height:70px;background:#191319;border-radius:60% 55% 35% 45%;z-index:4;transform:rotate(-4deg)}
+.cap{position:absolute;left:24px;top:28px;width:142px;height:60px;background:#111018;border-radius:75px 75px 18px 18px;z-index:6;box-shadow:0 8px 0 #08070b}
+.cap:after{content:"";position:absolute;left:-5px;bottom:-5px;width:145px;height:20px;background:#111018;border-radius:50%}
+.cap span{position:absolute;left:60px;top:14px;color:#f2e4ec;font-size:25px}
+.ear{position:absolute;width:25px;height:38px;background:#c9896c;top:120px;border-radius:50%;z-index:2}.ear.left{left:22px}.ear.right{right:22px}
+.glasses{position:absolute;left:8px;top:44px;width:105px;display:flex;align-items:center;justify-content:space-between;z-index:7}.lens{width:43px;height:33px;border:3px solid rgba(255,255,255,.72);border-radius:10px;background:rgba(225,245,255,.08);backdrop-filter:blur(1px)}.glasses i{width:10px;height:3px;background:#ddd;display:block}
+.nose{position:absolute;left:56px;top:80px;width:9px;height:8px;border-radius:50%;background:#8f5148}.mouth{position:absolute;left:51px;top:96px;width:22px;height:10px;border-bottom:3px solid #713b3c;border-radius:0 0 20px 20px}
+.hoodie{position:absolute;left:12px;bottom:0;width:166px;height:180px;background:linear-gradient(145deg,#25212a,#0f0d12);border-radius:65px 65px 25px 25px;z-index:1}.hoodie:before{content:"";position:absolute;left:44px;top:15px;width:78px;height:90px;border:12px solid #17141b;border-radius:50%}
+.arm{position:absolute;width:75px;height:32px;background:#1b1820;border-radius:30px;bottom:35px;z-index:2}.a1{left:-3px;transform:rotate(15deg)}.a2{right:-3px;transform:rotate(-15deg)}
+.digital-cat{position:absolute;right:12%;bottom:65px;width:145px;height:125px;cursor:grab;z-index:10;touch-action:none;filter:drop-shadow(0 18px 18px rgba(0,0,0,.35));transition:filter .4s}.digital-cat:active{cursor:grabbing}
+.cat-face{position:absolute;left:20px;top:25px;width:105px;height:88px;border-radius:48% 48% 45% 45%;background:#d9a679;z-index:3}.cat-ear{position:absolute;top:3px;width:45px;height:55px;background:#d9a679;z-index:1;clip-path:polygon(50% 0,100% 100%,0 100%)}.ce1{left:20px}.ce2{right:20px}.cat-eye{position:absolute;top:34px;width:17px;height:20px;border-radius:50%;background:#673c1f;box-shadow:inset 3px 2px 0 #fff}.cat-eye:first-child{left:23px}.cat-eye:nth-child(2){right:23px}.cat-nose{position:absolute;left:48px;top:55px;width:10px;height:8px;border-radius:50%;background:#b85d76}.cat-mouth{position:absolute;left:42px;top:64px;width:22px;height:10px;border-bottom:3px solid #70462b;border-radius:0 0 20px 20px}.cat-body{position:absolute;left:5px;right:5px;bottom:0;height:62px;background:#d9a679;border-radius:55% 55% 25px 25px}
+.digital-stage.happy .twin{transform:translateY(-10px) scale(1.03)}.digital-stage.happy .face{filter:brightness(1.1)}.digital-stage.happy .mouth{height:16px;border-bottom-width:4px}.digital-stage.happy .digital-cat{animation:catHappy .6s ease-in-out infinite alternate}.digital-stage.sad .twin{transform:translateY(20px) rotate(4deg);filter:grayscale(.3) brightness(.7)}.digital-stage.sad .face{background:#9b756c}.digital-stage.sad .mouth{height:0;border-bottom:0;border-top:3px solid #713b3c;border-radius:20px 20px 0 0}.digital-stage.sad .digital-cat{filter:grayscale(.15);transform:translateY(6px)}
+@keyframes catHappy{to{transform:translateY(-8px) rotate(2deg)}}
+.digital-message{margin:22px auto 0;max-width:760px;padding:18px 22px;border-radius:20px;background:rgba(255,111,174,.07);border:1px solid rgba(255,111,174,.16);color:#eadde5}.digital-message b{color:#ff9ac7}.digital-instruction{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:#8f7d8a;font-size:.85rem;white-space:nowrap}
+@media(max-width:700px){.digital-stage{height:520px}.twin{left:18%;transform:scale(.82);transform-origin:bottom left}.digital-cat{right:5%;transform:scale(.82);transform-origin:bottom right}.digital-status{font-size:.78rem}.digital-instruction{font-size:.72rem}}
+
+
+.digital-stage{touch-action:none}
+.digital-cat{user-select:none;-webkit-user-select:none;touch-action:none}
+
+
+.digital-stage{position:relative;touch-action:none;user-select:none;-webkit-user-select:none}
+.digital-cat{position:absolute!important;z-index:30!important;display:block!important;touch-action:none!important;user-select:none!important;-webkit-user-select:none!important;cursor:grab!important;-webkit-tap-highlight-color:transparent}
+.digital-cat *{pointer-events:none}
+
+
+.digital-stage:before{pointer-events:none}
+.digital-status,.digital-instruction,.twin{pointer-events:none}
+.digital-stage{touch-action:none}
+.digital-cat{user-select:none;-webkit-user-select:none}
+
+
+.gif-section{background:radial-gradient(circle at 50% 45%,rgba(255,111,174,.10),transparent 48%)}
+.gif-card{max-width:900px;margin:35px auto 0;padding:14px;border-radius:30px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);box-shadow:0 25px 80px rgba(0,0,0,.35)}
+.gif-card img{display:block;width:100%;height:auto;border-radius:22px}
+</style>
+</head>
+<body>
+
+<div class="gate" id="gate">
+  <div class="box">
+    <div class="kitty">🐱🤎</div>
+    <div class="badge">ANTES DE ENTRAR...</div>
+    <h1>Prométeme algo, Pipin ❤️</h1>
+    <div class="question">¿Me prometes que serás siempre mi Pipin<br>y que algún día te casarás conmigo? 💍</div>
+    <p class="small" id="hint">Hay una respuesta correcta... 😌</p>
+    <div class="buttons" id="area">
+      <button class="yes" id="yes">SÍ, MI AMOR ❤️</button>
+      <button class="no" id="no">NO 😈</button>
+    </div>
+  </div>
+</div>
+
+<button class="music" id="musicBtn">🎵 Nuestra canción</button>
+<div class="player" id="player">
+  <b>Beret & Morat — Porfa no te vayas ❤️</b><br>
+  <small>Ahora sí: tu canción está dentro de la página.</small><br><br>
+  <audio id="audio" controls loop preload="metadata">
+    <source src="audio.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<section>
+<div class="wrap">
+  <div class="badge">PARA MI GATITO 🐾</div>
+  <h2>Mi Pipin 🤎</h2>
+  <p class="muted">Hay personas que hacen bonito un día. Tú hiciste bonito mi mundo.</p>
+  <br><button class="yes" onclick="document.getElementById('reasons').scrollIntoView()">Ven, mira esto ❤️</button>
+</div>
+</section>
+
+<section id="reasons">
+<div class="wrap">
+<h2>Lo más bonito de ti</h2>
+<p class="muted">No sé cómo explicar todo lo que me gustas, pero al menos puedo intentarlo.</p>
+<div class="cards">
+<div class="card">🌷<br><b>Tu forma de ser</b><p>Me encanta esa manera tan tuya de hacer que cualquier momento sea especial.</p></div>
+<div class="card">🥹<br><b>Tu sonrisa</b><p>Podría estar teniendo un día horrible y aun así verte sonreír me cambia todo.</p></div>
+<div class="card">🐾<br><b>Mi Pipin</b><p>Eres mi Gatito, mi persona favorita y una de mis razones para sonreír.</p></div>
+<div class="card">❤️<br><b>Me gustas muchísimo</b><p>Muchísimo más de lo que cabe en una página y probablemente más de lo que te imaginas.</p></div>
+<div class="card">🌙<br><b>Te extraño</b><p>Ya no aguanto las ganas de verte, abrazarte y quedarme contigo un ratito más.</p></div>
+<div class="card">💍<br><b>Mi futuro favorito</b><p>Quiero seguir viviendo historias contigo y construir recuerdos que nos hagan reír años después.</p></div>
+</div>
+</div>
+</section>
+
+<section class="love">
+<div class="wrap">
+<div style="font-size:60px">❤️</div>
+<h2>Te extraño demasiado</h2>
+<p class="muted">Quiero verte, abrazarte, molestarte y reírme contigo.</p>
+<div class="letter">
+<p>Gatito,</p>
+<p>Me gustas muchísimo. Me encanta tenerte en mi vida y pensar en todas las cosas que todavía nos faltan vivir.</p>
+<p>Y sí... algún día quiero hacerte mamá 😹❤️. Pero antes quiero seguir siendo ese tonto que te extraña, que quiere verte a cada rato y que se emociona cuando sabe que va a encontrarse contigo.</p>
+<p>Te quiero muchísimo, mi Pipin. Gracias por existir y por hacer mi mundo más bonito.</p>
+<p class="pink"><b>— El que ya se muere por verte ❤️</b></p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<h2>1 millón de primaveras 🌸</h2>
+<div class="spring">
+<div class="million">1,000,000</div>
+<h3>primaveras contigo</h3>
+<p>Y si pudiera, las viviría todas a tu lado, mi Gatito.</p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<div class="badge">GATITOS ILUSTRADOS 🤎</div>
+<h2>Porque tú eres mi Gatito</h2>
+<p class="muted">No son gatos reales. Son pequeños dibujitos con ojitos marrones, porque así es como te veo cuando te digo “Gatito”.</p>
+<div class="cats">
+<script>
+const cats=["mi Pipin 🐾","ojitos que enamoran 🤎","demasiado bonita ❤️","mi debilidad 🥹","te extraño 😭","ven, abrázame 🤎"];
+document.write(cats.map((t,i)=>`<div class="cat"><svg viewBox="0 0 300 260"><path d="M65 115L80 48L125 88Q150 78 175 88L220 48L235 115Q250 145 235 185Q215 225 150 230Q85 225 65 185Q50 145 65 115Z" fill="${["#d9a679","#efc29c","#b98a67","#e5b98e","#c99a73","#d3a57c"][i]}"/><ellipse cx="112" cy="143" rx="20" ry="23" fill="white"/><ellipse cx="188" cy="143" rx="20" ry="23" fill="white"/><ellipse cx="114" cy="145" rx="9" ry="13" fill="#663b1f"/><ellipse cx="186" cy="145" rx="9" ry="13" fill="#663b1f"/><circle cx="117" cy="140" r="3.5" fill="white"/><circle cx="189" cy="140" r="3.5" fill="white"/><path d="M143 170Q150 164 157 170L150 178Z" fill="#c96780"/><path d="M150 178Q138 192 126 182M150 178Q162 192 174 182" stroke="#70462b" stroke-width="5" fill="none" stroke-linecap="round"/></svg><span>${t}</span></div>`)).join("");
+</script>
+</div>
+</div>
+</section>
+
+<section class="gif-section">
+<div class="wrap">
+  <div class="badge">MI GATITO 🐱🤎</div>
+  <h2>Cuando te acercas, vuelvo a vivir</h2>
+  <p class="muted">Así me imagino cuando mi Gatito se acerca... y cuando se aleja demasiado. 🥺</p>
+  <div class="gif-card">
+    <img src="gatito_y_pipin.gif" alt="Animación de un gatito acercándose y alejándose de Pipin">
+  </div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<div class="badge">UNA ÚLTIMA COSA...</div>
+<h2>¿Sabes qué quiero?</h2>
+<p class="muted">Seguir eligiéndote, hacerte reír, abrazarte cuando te extrañe y llenar nuestra historia de momentos que solo sean nuestros.</p>
+<br><div style="font:36px Georgia;color:#ff9ac7">Te quiero, mi Pipin. ❤️</div>
+</div>
+</section>
+
+<script>
+const gate=document.getElementById("gate"),yes=document.getElementById("yes"),no=document.getElementById("no"),area=document.getElementById("area"),hint=document.getElementById("hint");
+let escapes=0;
+function escapeNo(e){
+  if(e)e.preventDefault();
+  escapes++;
+  no.style.position="fixed";
+  no.style.left=Math.max(10,Math.random()*(innerWidth-no.offsetWidth-20))+"px";
+  no.style.top=Math.max(10,Math.random()*(innerHeight-no.offsetHeight-20))+"px";
+  no.style.transform="rotate("+(Math.random()*40-20)+"deg)";
+  hint.textContent=["¿Segura? 👀","Pipin, por ahí no es 😹","Ese botón no quiere ser tocado 😂","¡Casi! Pero NO no está disponible 🤭","Tu destino es el SÍ ❤️"][Math.min(escapes-1,4)];
+}
+["mouseenter","pointerdown","touchstart"].forEach(ev=>no.addEventListener(ev,escapeNo,{passive:false}));
+
+yes.addEventListener("click",async()=>{
+  gate.classList.add("hide");
+  setTimeout(()=>gate.remove(),800);
+  const audio=document.getElementById("audio");
+  try{await audio.play();}catch(e){}
+  for(let i=0;i<35;i++)setTimeout(()=>heart(),i*45);
+});
+function heart(){
+  const h=document.createElement("div");h.className="heart";h.textContent=["❤️","💗","💕","✨","🤎"][Math.floor(Math.random()*5)];
+  h.style.left=Math.random()*100+"vw";h.style.fontSize=15+Math.random()*25+"px";h.style.animationDuration=3+Math.random()*3+"s";document.body.appendChild(h);setTimeout(()=>h.remove(),7000);
+}
+const musicBtn=document.getElementById("musicBtn"),player=document.getElementById("player"),audio=document.getElementById("audio");
+musicBtn.onclick=async()=>{player.classList.toggle("show");if(player.classList.contains("show"))try{await audio.play()}catch(e){}};
+</script>
+
+</body>
+</html>
